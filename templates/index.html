@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML MODEL</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-row {
+        margin-bottom: 16px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center" style="color: blue;">Salary Prediction Model</h1>
+    <hr>
+    <br>
+    <br>
+    <form action="{{ url_for('predict')}}" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="SEX">SEX</label>
+          <select name="SEX" id="SEX" class="form-control" required="required">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="AGE">AGE</label>
+          <input type="text" name="AGE" class="form-control" placeholder="AGE" required="required">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="UNIT">UNIT</label>
+          <select name="UNIT" id="UNIT" class="form-control" required="required">
+            <option value="1">Finance</option>
+            <option value="2">Web</option>
+            <option value="3">IT</option>
+            <option value="4">Operations</option>
+            <option value="5">Marketing</option>
+            <option value="6">Management</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="DESIGNATION">DESIGNATION</label>
+          <select name="DESIGNATION" id="DESIGNATION" class="form-control" required="required">
+            <option value="0">Analyst</option>
+            <option value="4">Senior Analyst</option>
+            <option value="1">Associate</option>
+            <option value="5">Senior Manager</option>
+            <option value="3">Manager</option>
+            <option value="2">Director</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="RATINGS">RATINGS</label>
+          <input type="text" name="RATINGS" class="form-control" placeholder="RATINGS" required="required">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="PAST_EXP">PAST EXPERIENCE</label>
+          <input type="text" name="PAST_EXP" class="form-control" placeholder="PAST EXP" required="required">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="LEAVES_REMAINING">LEAVES REMAINING</label>
+          <input type="text" name="LEAVES_REMAINING" class="form-control" placeholder="LEAVES REMAINING" required="required">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="Total_time_in_company">TOTAL TIME IN COMPANY</label>
+          <input type="text" name="Total_time_in_company" class="form-control" placeholder="Total_time_in_company" required="required">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
